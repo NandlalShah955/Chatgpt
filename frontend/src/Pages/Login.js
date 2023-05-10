@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {Link} from "react-router-dom"
 
 import {
   Flex,
@@ -8,7 +9,6 @@ import {
   Input,
   Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
@@ -59,6 +59,11 @@ function Login() {
               }}>
               Sign in
             </Button>
+            <Stack pt={6}>
+            <Text align={'center'}>
+              Don't Have Account? <Link style={{color:"blue"}} to ="/signup">Signup</Link>
+            </Text>
+          </Stack>
           </Stack>
         </Stack>
       </Box>

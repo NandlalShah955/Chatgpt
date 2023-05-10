@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link,Redirect} from "react-router-dom"
 
 import {Flex,Box,useDisclosure} from "@chakra-ui/react"
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
@@ -14,7 +15,6 @@ function Navbar() {
         justify="space-between"
         wrap="wrap"
         w="100%"
-        // h={"80px"}
         p={6}
         bg="#213059"
         color="white"
@@ -28,12 +28,10 @@ function Navbar() {
         <Flex align="center">
          
           <Box fontWeight="bold" fontSize="30px" letterSpacing="wide" >
-            MustWeb
+           Chattru
           </Box>
-        
-        </Flex>
-
-        <Box
+         </Flex>
+       <Box
           display={{ base: "block", md: "none" }}
           onClick={isOpen ? onClose : onOpen}
         >
@@ -52,47 +50,34 @@ function Navbar() {
         >
      
           <Box mt={{ base: 4, md: 0 }} mr={{ base: 0, md: 6 }} >
-         
-            About Us
+         <Link to="/chatgpt">
+
+             Chatgpt
+         </Link>
+      
+          </Box>
+          <Box mt={{ base: 4, md: 0 }} mr={{ base: 0, md: 6 }} >
+         <Link to="https://nandlalshah955.github.io/">
+
+             AboutUs
+         </Link>
       
           </Box>
         
-          <Box mt={{ base: 4, md: 0 }} mr={{ base: 0, md: 6 }}>
-         
-            Services
-            
-       
-            
-          </Box>
 
 
           <Box mt={{ base: 4, md: 0 }} mr={{ base: 0, md: 6 }}>
          
-            Pricing
-            
-         
-            
-          </Box>
-         
-          <Box mt={{ base: 4, md: 0 }} mr={{ base: 0, md: 6 }}>
-         
-            Projects
-            
-            
-         
-            
-          </Box>
+          <Link to="/payment">
 
-          <Box mt={{ base: 4, md: 0 }} mr={{ base: 0, md: 6 }}>
-           
-        
-           
-            Contact Us
+
+            Payment
+</Link>
             
+         
             
-            
-        
           </Box>
+      
         
         </Flex>
       </Flex>
