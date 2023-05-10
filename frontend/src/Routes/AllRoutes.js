@@ -4,6 +4,7 @@ import Chatgpt from "../Pages/Chatgpt";
 import Login from "../Pages/Login";
 import Payment from "../Pages/Payment";
 import Signup from "../Pages/Signup";
+import NotFound from '../Pages/NotFound';
 
 function AllRoutes() {
   return (
@@ -12,6 +13,7 @@ function AllRoutes() {
 <Route path='/' element={<Login/>}/>
 <Route path='/signup' element={<Signup/>}/>
 <Route path='/payment' element={<Payment/>}/>
+<Route path="*" element={<NotFound/>}/>
     </Routes>
   )
 }
