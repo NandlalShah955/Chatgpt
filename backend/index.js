@@ -1,10 +1,24 @@
-const express=require('express')
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const router=express.Router();
+const mongoose = require("mongoose");
+const cors=require("cors")
+const bodyparser = require("body-parser");
+const PORT = process.env.PORT;
+const UserRouter=require("./src/routes/user.route")
+const connect=require("./src/config/db")
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(bodyparser.json());
+app.use(cors());
+mongoose.set("strictQuery", false);
+router.use("/user",UserRouter)
+app.get("/", (req, res) => res.send("hello"));
 
-const app = express()
 
-app.use(express.urlencoded({ extended:true }))
-app.use(express.json())
+app.listen(8080, function() {
+    console.log('Server listening on port 8000!');
+  });
 
-app.get('/',(req,res)=>res.send('hello'))
-
-app.listen(8080,()=>{console.log('server started on port 8080')})
+ 
