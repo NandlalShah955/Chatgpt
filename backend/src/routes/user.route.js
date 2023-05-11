@@ -14,11 +14,25 @@ app.get("/",async(req,res)=>{
 })
 
 
-// POST request of the user 
+// New signup request of the user 
 
 app.post("/signup",async(req,res)=>{
-    let {email,password}
-})
+    let {email,password}=req.body;
+  let user=await Users.findOne({email});
+  try {
+        if(user){
+            return res.status(400).send("Oops user already exists")
+        }
+        let newuser=new Users({
+            email,
+            password:await bcryptedpassword(password);
+        })
+        await newuser.save();
+        return res.status(200).send(newuser);
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+});
 
 
 
