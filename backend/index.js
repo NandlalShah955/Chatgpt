@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const router=express.Router();
 const mongoose = require("mongoose");
 const cors=require("cors")
 const bodyparser = require("body-parser");
@@ -13,7 +12,7 @@ app.use(express.json());
 app.use(bodyparser.json());
 app.use(cors());
 mongoose.set("strictQuery", false);
-router.use("/user",UserRouter)
+app.use("/user",UserRouter)
 app.get("/", (req, res) => res.send("hello"));
 
 
