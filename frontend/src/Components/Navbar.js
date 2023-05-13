@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link,Redirect} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 import {Flex,Box,useDisclosure} from "@chakra-ui/react"
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
