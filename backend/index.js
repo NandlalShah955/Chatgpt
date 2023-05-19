@@ -15,9 +15,8 @@ mongoose.set("strictQuery", false);
 app.use("/user",UserRouter)
 app.get("/", (req, res) => res.send("hello"));
 
-
 app.listen(8080, function() {
-    console.log('Server listening on port 8000!');
-  });
+  console.log('Server listening on port 8080!');
+});
 
  
