@@ -10,10 +10,9 @@ const bcryptedpassword=async(password)=>{
 
 app.get("/",async(req,res)=>{
   
-    let user=await UserModel.find();
-    res.send(user);
-    // console.log(user)
-    // res.send('user');
+    // let user=await UserModel.find();
+    res.send('user');
+   
 })
 
 
@@ -21,14 +20,15 @@ app.get("/",async(req,res)=>{
 // New signup request of the user 
 
 app.post("/signup",async(req,res)=>{
-    let {name,email,password}=req.body;
+    let {name,lastname,email,password}=req.body;
   let user=await UserModel.findOne({email});
   try {
         if(user){
             return res.status(400).send("Oops user already exists")
         }
         let newuser=new UserModel({
-           name,
+            name,
+            lastname,
             email,
             password:await bcryptedpassword(password)
         })
@@ -60,9 +60,5 @@ app.post("/login",async(req,res)=>{
 
 
 })
-
-
-
-
 
 module.exports =app;
