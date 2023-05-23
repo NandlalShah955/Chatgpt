@@ -10,8 +10,8 @@ const bcryptedpassword=async(password)=>{
 
 app.get("/",async(req,res)=>{
   
-    // let user=await UserModel.find();
-    res.send('user');
+    let user=await UserModel.find();
+    res.send(user);
    
 })
 
@@ -20,7 +20,7 @@ app.get("/",async(req,res)=>{
 // New signup request of the user 
 
 app.post("/signup",async(req,res)=>{
-    let {name,lastname,email,password}=req.body;
+    let {name,email,password}=req.body;
   let user=await UserModel.findOne({email});
   try {
         if(user){
@@ -28,7 +28,6 @@ app.post("/signup",async(req,res)=>{
         }
         let newuser=new UserModel({
             name,
-            lastname,
             email,
             password:await bcryptedpassword(password)
         })
