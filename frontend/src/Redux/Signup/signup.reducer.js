@@ -11,6 +11,7 @@ export const registerReducer = (state = init, { type, payload }) => {
       return {
         ...state,
         isLoading: true,
+        isError: false,
       };
     }
     case SIGNUP_SUCCESS: {
@@ -18,6 +19,9 @@ export const registerReducer = (state = init, { type, payload }) => {
         ...state,
         isRegistered: true,
         successMessage: payload,
+        isLoading: false,
+        isError: false,
+        
       };
     }
     case SIGNUP_ERROR: {

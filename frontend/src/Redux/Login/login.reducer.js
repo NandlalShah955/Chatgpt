@@ -1,31 +1,47 @@
-import { SIGNUP_LOADING, SIGNUP_SUCCESS, SIGNUP_ERROR } from "./signup.types";
+import {
+  LOGIN_LOADING,
+  LOGIN_SUCCESS,
+  LOGIN_ERROR,
+  LOGOUT,
+}
+from "./login.types";
 
 const init = {
-  isRegistered: false,
+  isAuth: false,
   isLoading: false,
   isError: false,
+  user:{},
 };
-export const registerReducer = (state = init, { type, payload }) => {
+export const loginReducer = (state = init, { type, payload }) => {
   switch (type) {
-    case SIGNUP_LOADING: {
+    case LOGIN_LOADING: {
       return {
         ...state,
         isLoading: true,
       };
     }
-    case SIGNUP_SUCCESS: {
+    case LOGIN_SUCCESS: {
       return {
         ...state,
-        isRegistered: true,
-        successMessage: payload,
+        isAuth:true,
+        isLoading: false,
+        isError:false,
+        user:payload
+       
       };
     }
-    case SIGNUP_ERROR: {
+    case LOGIN_ERROR: {
       return {
         ...state,
+        isAuth:false,
         isLoading: false,
-        isError: true,
-        errorMessage: payload,
+        isError:true,
+        errorMessage:payload,
+      };
+    }
+    case LOGOUT: {
+      return {
+       ...init
       };
     }
     default: {

@@ -11,7 +11,7 @@ dispatch({type:SIGNUP_LOADING});
 console.log(creds);
 
 try {
-    const res=await axios.post("https://charge-now-back-end.onrender.com/chargebee/user/register",creds);
+    const res=await axios.post("http://localhost:8080/user/signup",creds);
     const data=await res.data;
     dispatch({type:SIGNUP_SUCCESS,payload:data});
 } catch (error) {
